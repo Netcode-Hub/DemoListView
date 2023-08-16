@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoListView.MainPage"
+              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:DemoListView" Title="Book List">
+
+    <ContentPage.BindingContext>
+        <local:BookInfoViewModel/>
+    </ContentPage.BindingContext>
+
+    <syncfusion:SfListView x:Name="listView" 
+                   ItemsSource="{Binding MyBooks}"
+                   ItemSize="100">
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="5">
+                    <Frame>
+                        <HorizontalStackLayout Spacing="5">
+                            <Image Source="{Binding BookImage}" WidthRequest="70" HeightRequest="50"></Image>
+                            <VerticalStackLayout>
+                                <Label Grid.Row="1" Text="{Binding BookName}" FontAttributes="Bold" TextColor="Teal" FontSize="21" />
+                                <Label Grid.Row="1" Text="{Binding BookDescription}" TextColor="Teal" FontSize="15"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+    </syncfusion:SfListView>
+</ContentPage>
